@@ -27,3 +27,4 @@ after_success:
   - docker tag webapp:release kynnai/webapp:release
   - docker login -u=kynnai -p=$mdpDockerHub
   - docker push kynnai/webapp:release
+  
