@@ -1,0 +1,16 @@
+#docker build -t webapp:release -f ./dockerfile/release .
+#docker run -it --rm -p 8080:5000 webapp:release
+
+FROM microsoft/dotnet:latest
+
+WORKDIR /src/webapp
+
+ENV ASPNETCORE_URLS http://+:5000
+
+EXPOSE 5000
+
+COPY /src/webapp /src/webapp
+
+RUN dotnet restore
+
+CMD ["dotnet", "run"]

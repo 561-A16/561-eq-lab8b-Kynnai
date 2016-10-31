@@ -1,0 +1,15 @@
+FROM microsoft/dotnet:latest
+
+WORKDIR /src
+
+ENV ASPNETCORE_URLS http://+:5000
+
+EXPOSE 5000
+
+COPY /scripts/testAndPublish.sh ../scripts/testAndPublish.sh
+
+RUN chmod +x ../scripts/testAndPublish.sh
+
+CMD ["sh", "../scripts/testAndPublish.sh"]
+
+COPY /src /src
