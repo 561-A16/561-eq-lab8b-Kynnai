@@ -1,3 +1,6 @@
+#!bin/bash
+set -ev
 dotnet restore
-cd ../src/webapp.unittests/
-dotnet test
+dotnet test ./webapp.unitests
+rm -rf $HOME/publish/*
+dotnet publish ./webapp --configuration release --output $HOME/publish
