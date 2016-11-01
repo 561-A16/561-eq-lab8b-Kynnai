@@ -16,5 +16,5 @@ before_install:
   - ssh-add id_rsa
 
 script:
-  - chmod +x /scripts/testAndPublish.sh
+  - chmod +x /scripts/travisCI.sh
   - sh ./scripts/travisCI.sh
