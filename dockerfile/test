@@ -8,7 +8,7 @@ COPY ./scripts ./scripts
 
 RUN chmod +x /scripts/testAndPublish.sh
 
-CMD ["sh", "/scripts/testAndPublish.sh"]
+#CMD ["sh", "/scripts/testAndPublish.sh"]
 
 COPY /src /src
 
