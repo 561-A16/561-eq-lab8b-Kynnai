@@ -6,10 +6,10 @@ docker run -it --rm -v $PWD/publish:/root/publish -v $PWD/packages:/root/.nuget/
 
 sudo docker build -t webapp:release -f ./dockerfile/release .
 
-docker tag webapp:release kynnai/webapp:release
-docker login -u=kynnai -p=$mdpDockerHub
-docker push kynnai/webapp:release
+docker tag webapp:release $DOCKER_HUB_USERNAME/webapp:release
+docker login -u=$DOCKER_HUB_USERNAME -p=$DOCKER_HUB_PASSWORD
+docker push $DOCKER_HUB_USERNAME/webapp:release
 
-scp -o StrictHostKeyChecking=no ./scripts/getReleaseFromDockerHubAndStart.sh u1462507@159.203.33.172:~/
-ssh u1462507@159.203.33.172 "chmod +x getReleaseFromDockerHubAndStart.sh"
-ssh u1462507@159.203.33.172 "sh getReleaseFromDockerHubAndStart.sh"
+scp -o StrictHostKeyChecking=no ./scripts/getReleaseFromDockerHubAndStart.sh $DOMAINE:~/
+ssh $DOMAINE "chmod +x getReleaseFromDockerHubAndStart.sh"
+ssh $DOMAINE "sh getReleaseFromDockerHubAndStart.sh"

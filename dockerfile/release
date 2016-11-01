@@ -1,10 +1,10 @@
 #docker build -t webapp:release -f ./dockerfile/release .
-#docker run -it --rm -p 6521:5000 webapp:release
+#docker run -it --rm -p6521:5000 webapp:release
 
 FROM microsoft/dotnet:latest
-
-CMD ["dotnet", "webapp.dll"]
 
 COPY ./publish /app
 
 WORKDIR /app
+
+CMD ["dotnet", "webapp.dll"]
