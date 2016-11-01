@@ -18,3 +18,4 @@ before_install:
 script:
   - chmod 777 ./scripts/travisCI.sh
   - sh ./scripts/travisCI.sh
+  
