@@ -24,6 +24,6 @@ after_success:
   - docker tag webapp:release kynnai/webapp:release
   - docker login -u=$DOCKER_HUB_USERNAME -p=$DOCKER_HUB_PASSWORD
   - docker push kynnai/webapp:release
-  - scp -o StrictHostKeyChecking=no ./scripts/getReleaseFromDockerHubAndStart.sh 159.203.33.172:~/
-  - ssh 159.203.33.172:6521 "chmod +x getReleaseFromDockerHubAndStart.sh"
-  - ssh 159.203.33.172:6521 "sh getReleaseFromDockerHubAndStart.sh"
+  - scp -o StrictHostKeyChecking=no ./scripts/getReleaseFromDockerHubAndStart.sh u1462507@159.203.33.172:~/
+  - ssh u1462507@159.203.33.172:6521 "chmod +x getReleaseFromDockerHubAndStart.sh"
+  - ssh u1462507@159.203.33.172:6521 "sh getReleaseFromDockerHubAndStart.sh"
